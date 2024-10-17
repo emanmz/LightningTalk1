@@ -1,28 +1,17 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 17 17:00:31 2024
-
-@author: emanzaheer
-"""
-
 import openpyscad as ops
-import random
 
-def random_point():
-    return [
-        random.uniform(-10, 10),  # x coordinate
-        random.uniform(-10, 10),  # y coordinate
-        random.uniform(-10, 10)   # z coordinate
+
+c1 = ops.Cube([10, 20, 10])
+c2 = ops.Cube([20, 10, 10])
+(c1 + c2).write("sample.scad")
+
+p = ops.Polyhedron(
+    points=[
+        [10, 10, 0], [10, -10, 0], [-10, -10, 0], [-10, 10, 0],  [0, 0, 10]
+    ],
+    faces=[
+        [0, 1, 4], [1, 2, 4], [2, 3, 4], [3, 0, 4],  [1, 0, 3], [2, 1, 3]
     ]
+)
 
-def random_polyhedron():
-    points = [random_point() for _ in range(5)]
-    faces = [
-        [0, 1, 4], [1, 2, 4], [2, 3, 4], [3, 0, 4],  [1, 0, 3], [2, 1, 3]]
-    
-    return ops.Polyhedron(points=points, faces=faces)
-
-# Generate and save the polyhedron
-p = random_polyhedron()
-p.write("testtest.scad")
+p.write("test2.scad")
