@@ -15,7 +15,7 @@ cubes = ops.Cube([100, 100, 100])
 x, y, z = 0, 0, 100
 
 # Create progressively smaller cubes from size 99 to 1
-for size in range(99, 0, -5):
+for size in range(99, 0, -1):
     # Create the next cube and translate it on top of the previous one
     cubes += ops.Cube([size, size, size]).translate([x, y, z])
     # Update the z position for the next cube to stack on top
