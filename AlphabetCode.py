@@ -312,6 +312,10 @@ name_input = input("Enter your text (use only the supported characters A-Z and '
 
 # Input field for the colors, separated by commas
 color_input = input("Enter colors for the letters (separate by commas): ").strip()
+
+if color_input == "rainbow":
+    color_input = "red,orange,yellow,green,blue,purple"
+
 colors = [color.strip() for color in color_input.split(',')]
 
 # Space width for spacing between letters
@@ -321,18 +325,25 @@ space_width = letter_height  # You can adjust this value as needed
 x_offset = 0
 letters = ops.Union()
 
-for i, letter in enumerate(name_input):
+# Initialize color index
+color_index = 0
+
+for letter in name_input:
     if letter == ' ':
         # If the letter is a space, increase x_offset by the space width and skip
         x_offset += space_width
         continue
+    
     if letter in letter_map:
         # Create the letter and color it with user-defined colors
-        colored_letter = letter_map[letter]().color(colors[i % len(colors)])
+        colored_letter = letter_map[letter]().color(colors[color_index % len(colors)])
         # Position the letter next to the previous one
         letters += colored_letter.translate([x_offset, 0, 0])
         # Update the offset for the next letter
         x_offset += letter_height
+        
+        # Increment color index only for letters
+        color_index += 1
 
 # Save the model to a .scad file
 letters.write(f"{name_input}_letters.scad")

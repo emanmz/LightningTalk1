@@ -11,9 +11,9 @@ import random
 
 def random_point():
     return [
-        random.uniform(-10, 10),  # x coordinate
-        random.uniform(-10, 10),  # y coordinate
-        random.uniform(-10, 10)   # z coordinate
+        random.uniform(-200, 200),  # x coordinate
+        random.uniform(-200, 200),  # y coordinate
+        random.uniform(-200, 200)   # z coordinate
     ]
 
 def random_polyhedron():
@@ -25,4 +25,4 @@ def random_polyhedron():
 
 # Generate and save the polyhedron
 p = random_polyhedron()
-p.write("testtest.scad")
+p.write("Random_Polyhedron.scad")
