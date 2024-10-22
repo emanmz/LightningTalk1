@@ -24,10 +24,10 @@ def menger_sponge(size, level):
 
 # going over level 3 DOES NOT LOAD. it is WAYYYY to many cubes
 size = 30
-level = 3
+level = 0
 # Generate the Menger Sponge
 sponge = menger_sponge(size, level)
 # Optional: Apply transformations and color
-colored_sponge = sponge.color("black").rotate([0, 0, 45])
+colored_sponge = sponge.color("#CC5500").rotate([0, 0, 45])
 # Save the result to a SCAD file
 colored_sponge.write(f"{size}_{level}_menger_sponge.scad")

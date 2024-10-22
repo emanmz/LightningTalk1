@@ -1,5 +1,5 @@
 rotate(a=[0, 0, 45]){
-    color("black"){
+    color("#CC5500"){
         union(){
             translate(v=[0.0, 0.0, 0.0]){
                 union(){

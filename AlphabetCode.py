@@ -315,6 +315,8 @@ color_input = input("Enter colors for the letters (separate by commas): ").strip
 
 if color_input == "rainbow":
     color_input = "red,orange,yellow,green,blue,purple"
+if color_input == "ut":
+    color_input = "#CC5500"
 
 colors = [color.strip() for color in color_input.split(',')]
 

@@ -1,9 +1,9 @@
 import openpyscad as ops
 
-# # Step 1: Basic shapes
+# Step 1: Basic shapes
 
-# cube1 = ops.Cube([10, 20, 10])
-# cube1.write("demo_output.scad")
+cube1 = ops.Cube([10, 20, 10])
+cube1.write("demo_output.scad")
 # cube2 = ops.Cube([20, 10, 10])
 # cube2.write("demo_output.scad")
 # sphere1 = ops.Sphere(r=10, _fn=100)
